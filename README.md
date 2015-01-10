@@ -8,10 +8,6 @@ Install with Rubygems:
 
     gem install feed_torrents
 
-If you use bundler, add it to your Gemfile:
-
-    gem "feed_torrents", "~>0.1.0"
-
 ## Usage
 
 Create a configuration file: /tmp/feed_torrents.yml
