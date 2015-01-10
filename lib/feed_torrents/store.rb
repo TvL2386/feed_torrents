@@ -37,7 +37,11 @@ module FeedTorrents
     private
 
     def pstore
-      @pstore ||= PStore.new(FeedTorrents.configuration.datastore)
+      @pstore ||= PStore.new(pstore_file)
+    end
+
+    def pstore_file
+      Pathname.new(FeedTorrents.configuration.datastore)
     end
 
     def outdated?(time)
