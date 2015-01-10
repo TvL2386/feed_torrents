@@ -1,6 +1,6 @@
 # FeedTorrents
 
-[![Gem Version](https://badge.fury.io/rb/feed_torrents.png)](http://rubygems.org/gems/feed_torrents)
+[![Gem Version](https://badge.fury.io/rb/feed_torrents.svg)](http://badge.fury.io/rb/feed_torrents)
 
 ## Install
 
