@@ -1,5 +1,3 @@
-require 'awesome_print'
-
 require 'feed_torrents/log_functions'
 require 'feed_torrents/configuration'
 
