@@ -41,7 +41,7 @@ module FeedTorrents
     end
 
     def pstore_file
-      Pathname.new(FeedTorrents.configuration.datastore)
+      File.expand_path(FeedTorrents.configuration.datastore)
     end
 
     def outdated?(time)

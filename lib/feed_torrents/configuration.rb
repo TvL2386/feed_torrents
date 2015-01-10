@@ -17,7 +17,7 @@ module FeedTorrents
     include Singleton
 
     def yaml_from_file(file)
-      set_config YAML.load_file(file)
+      set_config YAML.load_file(File.expand_path(file))
       nil
     end
 
@@ -43,7 +43,7 @@ module FeedTorrents
       if self.log and self.log[:out] == 'STDOUT'
         obj = Logger.new(STDOUT)
       else
-        obj = Logger.new(self.log[:out], self.log[:rotate], self.log[:size])
+        obj = Logger.new(File.expand_path(self.log[:out]), self.log[:rotate], self.log[:size])
         obj.level = Logger.const_get(self.log[:level])
         obj.datetime_format = self.log[:format]
       end

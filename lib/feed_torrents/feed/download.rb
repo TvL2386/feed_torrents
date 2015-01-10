@@ -46,7 +46,7 @@ module FeedTorrents
       end
 
       def file
-        Pathname.new(@directory).join("#{@title}.torrent")
+        Pathname.new(@directory).join("#{@title}.torrent").expand_path
       end
     end
   end
