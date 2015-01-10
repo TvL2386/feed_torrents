@@ -22,4 +22,4 @@ else
   FeedTorrents.configuration.yaml_from_file ARGV[0]
 end
 
-FeedTorrents.logger.info "Started feed_torrents-#{FeedTorrents::VERSION}"
+FeedTorrents::Reactor.start!

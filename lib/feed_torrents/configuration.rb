@@ -2,6 +2,7 @@ require 'singleton'
 require 'ostruct'
 require 'yaml'
 require 'logger'
+require 'pstore'
 
 module FeedTorrents
   def self.configuration

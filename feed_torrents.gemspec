@@ -16,6 +16,9 @@ Gem::Specification.new do |gem|
   gem.require_paths = ['lib']
 
   gem.add_dependency 'awesome_print', '~> 1.6'
+  gem.add_dependency 'eventmachine', '~> 1.0'
+  gem.add_dependency 'simple-rss', '~> 1.3'
+  gem.add_dependency 'em-http-request', '~> 1.1'
 
   gem.add_development_dependency 'bundler', '~> 1.5'
   gem.add_development_dependency 'rake', '~> 10.4'
