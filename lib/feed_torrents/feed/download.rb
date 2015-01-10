@@ -18,6 +18,7 @@ module FeedTorrents
 
         http.errback do
           error "failure retrieving torrent for '#{@title}' (#{torrent_link})"
+          error "error: #{http.error}"
         end
 
         http.callback do

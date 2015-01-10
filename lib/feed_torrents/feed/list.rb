@@ -33,7 +33,8 @@ module FeedTorrents
             http = EM::HttpRequest.new(url, inactivity_timeout: timeout).get
 
             http.errback do
-              error "failure retrieving #{name}"
+              error "failure retrieving list #{name}"
+              error "error: #{http.error}"
             end
 
             http.callback do
