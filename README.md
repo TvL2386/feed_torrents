@@ -58,7 +58,7 @@ Now simply start the application:
 feed_torrents /tmp/feed_torrents.yml
 I, [2015-01-10T20:32:24.171075 #21457]  INFO -- : FeedTorrents::Reactor#initialize: Initialize new Reactor version 0.1.0
 I, [2015-01-10T20:32:24.171184 #21457]  INFO -- : FeedTorrents::Reactor#start: Starting eventmachine loop
-I, [2015-01-10T20:32:24.171450 #21457]  INFO -- : FeedTorrents::Feed::List#initialize: showrss (enabled: true interval: 900 link: http://showrss.info/rss.php?user_id=205482&hd=1&proper=null&magnets=true)
+I, [2015-01-10T20:32:24.171450 #21457]  INFO -- : FeedTorrents::Feed::List#initialize: showrss (enabled: true interval: 900 link: http://showrss.info/rss.php?user_id=0000)
 I, [2015-01-10T20:32:24.171484 #21457]  INFO -- : FeedTorrents::Feed::List#initialize: nyaa (enabled: true interval: 1800 link: http://www.nyaa.se/?page=rss&cats=1_37)
 I, [2015-01-10T20:32:24.171540 #21457]  INFO -- : FeedTorrents::Feed::List#download_new_items: feed showrss
 I, [2015-01-10T20:32:24.182937 #21457]  INFO -- : FeedTorrents::Feed::List#download_new_items: feed nyaa
@@ -113,9 +113,11 @@ setgid tom
 exec /usr/local/bin/feed_torrents /tmp/feed_torrents.yml
 ```
 
-and start it:
+And start it
 
-   sudo start feed_torrents
+```bash
+sudo start feed_torrents
+```
 
 ## Issues
 
