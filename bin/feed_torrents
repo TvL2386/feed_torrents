@@ -12,3 +12,14 @@ if File.directory?(File.join(root,'.git'))
     end
   end
 end
+
+require 'feed_torrents'
+
+if ARGV.length != 1
+  puts "Usage: #{$0} <configfile>"
+  exit 1
+else
+  FeedTorrents.configuration.yaml_from_file ARGV[0]
+end
+
+FeedTorrents.logger.info "Started feed_torrents-#{FeedTorrents::VERSION}"

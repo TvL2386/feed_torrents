@@ -1,0 +1,6 @@
+log:
+  :out: STDOUT # or some file path
+  :rotate: 5
+  :size: 10485760 # 10MB
+  :level: DEBUG
+  :format: '%Y-%m-%d %H:%M:%S'
