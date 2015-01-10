@@ -15,6 +15,8 @@ Gem::Specification.new do |gem|
   gem.test_files    = gem.files.grep(%r{^(test|spec|features)/})
   gem.require_paths = ['lib']
 
+  gem.add_dependency 'awesome_print', '~> 1.6'
+
   gem.add_development_dependency 'bundler', '~> 1.5'
   gem.add_development_dependency 'rake', '~> 10.4'
   gem.add_development_dependency 'rdoc', '~> 4.1'
