@@ -1,0 +1,31 @@
+= feed_torrents
+
+* {Homepage}[https://rubygems.org/gems/feed_torrents]
+* {Documentation}[http://rubydoc.info/gems/feed_torrents/frames]
+* {Email}[mailto:tom.van.leeuwen at saasplaza.com]
+
+== Description
+
+TODO: Description
+
+== Features
+
+== Examples
+
+  require 'feed_torrents'
+
+== Requirements
+
+== Install
+
+  $ gem install feed_torrents
+
+== Synopsis
+
+  $ feed_torrents
+
+== Copyright
+
+Copyright (c) 2015 Tom van Leeuwen
+
+See LICENSE.txt for details.
