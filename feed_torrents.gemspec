@@ -1,14 +1,14 @@
 require File.expand_path('../lib/feed_torrents/version', __FILE__)
 
 Gem::Specification.new do |gem|
-  gem.name          = "feed_torrents"
+  gem.name          = 'feed_torrents'
   gem.version       = FeedTorrents::VERSION
-  gem.summary       = %q{Follow configurable feeds and download torrents, even from magnet urls}
-  gem.description   = %q{Follow configurable feeds and download torrents, even from magnet urls}
-  gem.license       = "MIT"
-  gem.authors       = ["Tom van Leeuwen"]
-  gem.email         = "tom@vleeuwen.eu"
-  gem.homepage      = "https://rubygems.org/gems/feed_torrents"
+  gem.summary       = %q{A (multi) torrent feed reader without gui that handles both torrent links and magnet links downloading them as torrents}
+  gem.description   = %q{A (multi) torrent feed reader without gui that handles both torrent links and magnet links downloading them as torrents}
+  gem.license       = 'MIT'
+  gem.authors       = ['Tom van Leeuwen']
+  gem.email         = 'tom@vleeuwen.eu'
+  gem.homepage      = 'https://github.com/TvL2386/feed_torrents'
 
   gem.files         = `git ls-files`.split($/)
   gem.executables   = gem.files.grep(%r{^bin/}).map{ |f| File.basename(f) }
