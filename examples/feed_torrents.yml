@@ -1,6 +1,32 @@
 log:
-  :out: STDOUT # or some file path
+  :out: STDOUT
+#  :out: /tmp/feed_torrents.log
   :rotate: 5
-  :size: 10485760 # 10MB
-  :level: DEBUG
+  :size: 1048576 # 1MB
+  :level: INFO
   :format: '%Y-%m-%d %H:%M:%S'
+
+datastore: /tmp/feed_torrents.store
+
+# Default configuration items for a feed
+default_feed: &default_feed
+  :enabled: true
+  :interval: 900 # 900 seconds is 15 minutes
+  :timeout: 30
+  :directory: /tmp/incoming_torrents
+  :regex_filters:
+    - '.*'
+
+# Interval is in seconds
+feeds:
+  showrss:
+    <<: *default_feed
+    :url: 'file:///home/tom/RubymineProjects/feed_torrents/examples/showrss.rss'
+    :interval: 900
+    :enabled: true
+
+  tokyo_ghoul_s2:
+    <<: *default_feed
+    :url: 'http://www.nyaa.se/?page=rss&term=horriblesubs+Tokyo+Ghoul+1080p+Root+A'
+    :interval: 7200
+    :enabled: true
