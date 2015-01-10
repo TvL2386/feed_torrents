@@ -1,8 +1,7 @@
 log:
-  :out: STDOUT
-#  :out: /tmp/feed_torrents.log
+  :out: STDOUT # or some file path
   :rotate: 5
-  :size: 1048576 # 1MB
+  :size: 10485760 # 10MB
   :level: INFO
   :format: '%Y-%m-%d %H:%M:%S'
 
@@ -21,12 +20,16 @@ default_feed: &default_feed
 feeds:
   showrss:
     <<: *default_feed
-    :url: 'file:///home/tom/RubymineProjects/feed_torrents/examples/showrss.rss'
+    :url: 'http://showrss.info/rss.php?user_id=0000'
     :interval: 900
     :enabled: true
 
   tokyo_ghoul_s2:
     <<: *default_feed
-    :url: 'http://www.nyaa.se/?page=rss&term=horriblesubs+Tokyo+Ghoul+1080p+Root+A'
-    :interval: 7200
+    :url: 'http://www.nyaa.se/?page=rss&cats=1_37'
+    :interval: 1800
     :enabled: true
+    :regex_filters:
+      - 'HorribleSubs.*Fairy Tail S2 .*720p'
+      - 'HorribleSubs.*Magic Kaito .*1080p'
+      - '\[DeadFish\]'
