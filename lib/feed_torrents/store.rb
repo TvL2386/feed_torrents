@@ -45,7 +45,7 @@ module FeedTorrents
     end
 
     def outdated?(time)
-      (Time.now.to_i - time < 7776000) # older than 90 days is outdated
+      (Time.now.to_i - time.to_i < 7776000) # older than 90 days is outdated
     end
   end
 end
