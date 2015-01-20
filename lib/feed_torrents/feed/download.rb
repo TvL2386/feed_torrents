@@ -1,4 +1,5 @@
 require 'pathname'
+require 'fileutils'
 
 module FeedTorrents
   module Feed
@@ -47,7 +48,9 @@ module FeedTorrents
       end
 
       def file
-        Pathname.new(@directory).join("#{@title}.torrent").expand_path
+        dir = Pathname.new(@directory).expand_path
+        FileUtils.mkdir_p(dir) unless dir.exist?
+        dir.join("#{@title}.torrent")
       end
     end
   end
