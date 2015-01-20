@@ -60,6 +60,8 @@ module FeedTorrents
           link = CGI.unescapeHTML(item.link)
           process(item.title, link) if !already_processed?(link) and matches_filter?(item.title)
         end
+      rescue Exception => e
+        error "list #{@name} caused exception #{e.class}: #{e.message}"
       end
 
       def process(title, link)
