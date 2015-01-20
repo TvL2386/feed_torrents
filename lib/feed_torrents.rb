@@ -1,3 +1,6 @@
+require 'term/ansicolor'
+include Term::ANSIColor
+
 require 'feed_torrents/log_functions'
 require 'feed_torrents/configuration'
 

@@ -11,21 +11,25 @@ module FeedTorrents
       end
 
       def process
-        info "Downloading torrent for '#{@title}' (#{torrent_link})"
-        http = EM::HttpRequest.new(torrent_link, inactivity_timeout: @timeout).get
-        fh = File.new(file,'wb')
+        if FeedTorrents.configuration.filter_testing?
+          puts "Would have downloaded torrent for '#{@title}' (#{torrent_link})".bold.cyan
+        else
+          info "Downloading torrent for '#{@title}' (#{torrent_link})"
+          http = EM::HttpRequest.new(torrent_link, inactivity_timeout: @timeout).get
+          fh = File.new(file,'wb')
 
-        http.stream { |chunk| fh.write chunk }
+          http.stream { |chunk| fh.write chunk }
 
-        http.errback do
-          error "failure retrieving torrent for '#{@title}' (#{torrent_link})"
-          error "error: #{http.error}"
-        end
+          http.errback do
+            error "failure retrieving torrent for '#{@title}' (#{torrent_link})"
+            error "error: #{http.error}"
+          end
 
-        http.callback do
-          info "Downloading torrent for #{@title} completed"
-          fh.close
-          FeedTorrents.store.persist(@link)
+          http.callback do
+            info "Downloading torrent for #{@title} completed"
+            fh.close
+            FeedTorrents.store.persist(@link)
+          end
         end
       end
 

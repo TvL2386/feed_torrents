@@ -58,7 +58,10 @@ module FeedTorrents
 
         rss.items.each do |item|
           link = CGI.unescapeHTML(item.link)
-          process(item.title, link) if !already_processed?(link) and matches_filter?(item.title)
+
+          if matches_filter?(item.title)
+            process(item.title, link) if FeedTorrents.configuration.filter_testing? || !already_processed?(link)
+          end
         end
       rescue Exception => e
         error "list #{@name} caused exception #{e.class}: #{e.message}"

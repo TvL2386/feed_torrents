@@ -33,6 +33,14 @@ module FeedTorrents
       @source.send(method, *args, &block)
     end
 
+    def filter_testing=(value)
+      @filter_testing = !!value
+    end
+
+    def filter_testing?
+      @filter_testing
+    end
+
     private
 
     def source
@@ -40,7 +48,7 @@ module FeedTorrents
     end
 
     def create_logger
-      if self.log and self.log[:out] == 'STDOUT'
+      if self.log && self.log[:out] == 'STDOUT' || filter_testing?
         obj = Logger.new(STDOUT)
       else
         obj = Logger.new(File.expand_path(self.log[:out]), self.log[:rotate], self.log[:size])

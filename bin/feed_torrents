@@ -15,11 +15,23 @@ end
 
 require 'feed_torrents'
 
+FeedTorrents.configuration.filter_testing = true if ARGV.delete('--test-filters')
+
 if ARGV.length != 1
-  puts "Usage: #{$0} <configfile>"
+  puts "Usage: #{$0} <configfile> [--test-filters]"
+  puts "Retrieves rss lists every interval and downloads new torrents from torrent or magnet links"
+  puts
+  puts "  --test-filters      Prints all matches to STDOUT and won't do anything else"
+  puts
+  puts "Report bugs at: https://github.com/TvL2386/feed_torrents/issues"
   exit 1
 else
   FeedTorrents.configuration.yaml_from_file ARGV[0]
+end
+
+if FeedTorrents.configuration.filter_testing?
+  puts 'Filter testing enabled. Please press CTRL+C when you are done'.yellow.bold
+  puts
 end
 
 FeedTorrents::Reactor.start!
