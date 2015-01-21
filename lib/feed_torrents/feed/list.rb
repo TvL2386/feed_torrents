@@ -79,7 +79,10 @@ module FeedTorrents
 
       def matches_filter?(title)
         regex_filters.each do |filter|
-          return true if title =~ filter
+          if title =~ filter
+            puts "Filter #{filter.inspect} matches: #{title}".bold.red if FeedTorrents.configuration.filter_testing?
+            return true
+          end
         end
 
         false
