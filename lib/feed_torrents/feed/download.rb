@@ -29,6 +29,8 @@ module FeedTorrents
             info "Downloading torrent for #{@title} completed"
             fh.close
             FeedTorrents.store.persist(@link)
+
+            FeedTorrents::Mail.new.send_email("Downloaded torrent #{@title}")
           end
         end
       end

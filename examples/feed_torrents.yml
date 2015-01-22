@@ -7,6 +7,22 @@ log:
 
 datastore: /tmp/feed_torrents.store
 
+email:
+  :enabled: true
+  :to: john.doe@example.com
+  :from: feed_torrents@example.com
+  :delivery_method:
+    :smtp: true
+    :address: smtp.example.com
+    :port: 25
+
+# alternative methods, check: https://github.com/mikel/mail
+#  :delivery_method:
+#    :sendmail: true
+#  :delivery_method:
+#    :exim: true
+#    :location: "/usr/bin/exim"
+
 # Default configuration items for a feed
 default_feed: &default_feed
   :enabled: true
