@@ -5,13 +5,13 @@ module FeedTorrents
     PREFIX = "[FeedTorrents] "
 
     def send_test_email
-      mail(subject: "#{PREFIX}Test email", body: 'test email').deliver
+      mail(subject: "#{PREFIX}Test email", body: 'test email')
     end
 
     def send_email(subject)
       return unless FeedTorrents.configuration.email[:enabled]
 
-      mail(subject: "#{PREFIX}#{subject}", body: 'See subject! :-)').deliver
+      mail(subject: "#{PREFIX}#{subject}", body: 'See subject! :-)')
     end
 
     private
@@ -32,9 +32,9 @@ module FeedTorrents
 
       obj.delivery_method delivery_method, delivery_arguments
 
-      info "About to send an email to #{options[:to].inspect} with subject: #{options[:subject].inspect}"
+      info "Sending an email to #{options[:to].inspect} with subject: #{options[:subject].inspect}"
 
-      obj
+      obj.deliver
     end
 
     def delivery_method
