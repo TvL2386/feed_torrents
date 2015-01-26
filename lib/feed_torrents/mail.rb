@@ -8,10 +8,10 @@ module FeedTorrents
       mail(subject: "#{PREFIX}Test email", body: 'test email')
     end
 
-    def send_email(subject)
+    def send_email(subject, body)
       return unless FeedTorrents.configuration.email[:enabled]
 
-      mail(subject: "#{PREFIX}#{subject}", body: 'See subject! :-)')
+      mail(subject: "#{PREFIX}#{subject}", body: body)
     end
 
     private

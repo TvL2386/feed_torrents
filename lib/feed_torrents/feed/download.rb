@@ -30,7 +30,7 @@ module FeedTorrents
             fh.close
             FeedTorrents.store.persist(@link)
 
-            FeedTorrents::Mail.new.send_email("Downloaded torrent #{@title}")
+            FeedTorrents::Mail.new.send_email(@title, @title)
           end
         end
       end
