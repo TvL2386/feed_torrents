@@ -58,9 +58,12 @@ module FeedTorrents
 
         rss.items.each do |item|
           link = CGI.unescapeHTML(item.link)
+          title = CGI.unescapeHTML(item.title)
+          title = title.force_encoding('UTF-8')
 
-          if matches_filter?(item.title)
-            process(item.title, link) if FeedTorrents.configuration.filter_testing? || !already_processed?(link)
+
+          if matches_filter?(title)
+            process(title, link) if FeedTorrents.configuration.filter_testing? || !already_processed?(link)
           end
         end
       rescue Exception => e

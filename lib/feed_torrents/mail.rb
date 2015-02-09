@@ -34,6 +34,7 @@ module FeedTorrents
 
       info "Sending an email to #{options[:to].inspect} with subject: #{options[:subject].inspect}"
 
+      obj.charset = 'UTF-8'
       obj.deliver
     end
 
